@@ -4,6 +4,7 @@
 ```
 pip install -r requirements.txt
 ```
+maybe need ``` pip install CORS ```
 
 ### Run
 
