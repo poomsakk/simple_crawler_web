@@ -8,6 +8,7 @@ flask --app app run
 ```
 ## Frontend
 ```
+cd front
 npm i
 npm run dev
 ```
