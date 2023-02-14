@@ -3,8 +3,8 @@
 
 ```
 pip install -r requirements.txt
+pip install -U flask-cors
 ```
-maybe need ``` pip install CORS ```
 
 ### Run
 
