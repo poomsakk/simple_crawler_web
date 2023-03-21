@@ -1,23 +1,26 @@
 import requests
-from bs4 import BeautifulSoup
 import re
 import csv
 
 
-def starts_with_wat(text):
-    return bool(re.match(r'^วัด.*', text))
-
-
 def getData(url):
     response = requests.get(url)
-    soup = BeautifulSoup(response.content, "html.parser")
-    result_data = []
-    for tag in soup.find_all('a'):
-        text_each_tag = str(tag.contents[0])
-        if (starts_with_wat(text_each_tag)):
-            result_data.append(text_each_tag)
-    result_data = result_data[:-4]
-    return result_data
+    # find all 'a' tag and keep in a_tag_list
+    a_tag_list = re.findall(r'<a\s.*?</a>', response.text)
+    content_list = []
+    for tag in a_tag_list:
+        # find content between <a> and </a>
+        match = re.search(r'<a[^>]*>(.*?)</a>', tag)
+        if match:
+            content_list.append(match.group(1))  # keep content in content_list
+    result = []
+    for content in content_list:
+        # find content that start with วัด
+        match = re.search(r'^วัด.*', content)
+        if match:
+            result.append(match.group(0))  # keep result
+    result = result[:-4]  # The last 4 result are unneeded.
+    return result
 
 
 def createFile(fileName, url):
