@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Select, Space, Button } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
-import TableProvince from "./TableProvince";
+import TableProvince from "./component/TableProvince";
+import DropdownCollapse from "./component/DropdownCollapse";
 
 function App() {
   const [selectProvince, setSelectProvince] = useState("Tak");
@@ -56,6 +57,7 @@ function App() {
             Download as CSV
           </Button>
         </Space>
+        <DropdownCollapse></DropdownCollapse>
         <TableProvince selectProvince={selectProvince} />
       </div>
     </>

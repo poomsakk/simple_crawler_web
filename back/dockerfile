@@ -1,0 +1,28 @@
+# Use the official Python image as the base image For my Raspberry pi
+FROM arm64v8/python:3.10-slim-buster
+# use this for Windows FROM python:3.10-slim-buster
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the requirements file to the container
+COPY requirements.txt .
+
+# Install the dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the application code to the container
+COPY . .
+
+# Set the environment variable for Flask
+ENV FLASK_APP=app.py
+
+# Set the command to start the application
+CMD ["flask", "run", "--host=0.0.0.0"]
+
+# docker build -t premmm123/crawler-web-backend-port-5000:latest .
+# docker push premmm123/crawler-web-backend-port-5000:latest
+# docker login
+
+# docker pull premmm123/crawler-web-backend-port-5000:latest
+# docker run -d -p 8030:5000 --name=crawler-web-backend --restart=always premmm123/crawler-web-backend-port-5000

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Select, Space, Table, Button } from "antd";
-import { DownloadOutlined } from "@ant-design/icons";
+import { Table } from "antd";
 import type { ColumnsType } from "antd/es/table";
 
 interface Iprops {
