@@ -63,7 +63,7 @@ const TableProvince: React.FC<Iprops> = (props) => {
         <p>Loading...</p>
       ) : (
         <Table
-          className="px-10"
+          className="px-10 lg:px-64"
           columns={columns}
           dataSource={dataOnTable}
           size="middle"

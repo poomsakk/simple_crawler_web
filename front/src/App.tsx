@@ -31,12 +31,11 @@ function App() {
 
   return (
     <>
-      <div className="container mx-auto px-80 text-center">
-        <Space size="large">
+      <div className="container mx-auto mt-auto text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 px-10 sm:px-15 md:px-20 lg:px-44 xl:px-72 pt-12 gap-4 content-center justify-center">
+          <h2>เลือกจังหวัดที่จะแสดงรายชื่อวัด</h2>
           <Select
-            className="py-10"
             defaultValue={selectProvince}
-            style={{ width: 280 }}
             onChange={(e) => setSelectProvince(e)}
             options={[
               { value: "Tak", label: "Tak (ตาก)" },
@@ -56,7 +55,7 @@ function App() {
           >
             Download as CSV
           </Button>
-        </Space>
+        </div>
         <DropdownCollapse></DropdownCollapse>
         <TableProvince selectProvince={selectProvince} />
       </div>
